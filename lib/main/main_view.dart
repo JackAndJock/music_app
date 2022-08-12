@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music_app/custom_view/overlay_view.dart';
+import 'package:music_app/custom_view/float_view.dart';
 import 'package:music_app/video_unit/video_main.dart';
 
 class MainView extends StatefulWidget {

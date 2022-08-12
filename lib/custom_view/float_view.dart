@@ -14,11 +14,10 @@ class FloatingView extends StatefulWidget {
   static _FloatingViewState of(BuildContext context) {
     final _FloatingViewState? state =
         context.findAncestorStateOfType<_FloatingViewState>();
-    print(state);
     if (state != null) {
       return state;
     }
-    throw ErrorWidget('float view exception');
+    throw ErrorWidget('***float view exception***');
   }
 
   @override
@@ -34,7 +33,7 @@ class _FloatingViewState extends State<FloatingView>
 
   final double width = 200;
   final double height = 30;
-  final double outWidth = 35;
+  final double outWidth = 40;
   final double boxHeight = 110;
 
   final double radius = 60;

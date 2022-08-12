@@ -37,6 +37,8 @@ dependencies:
 
   flutter_bloc: ^8.0.1 # 状态管理
   equatable: ^2.0.3 # 相等辅助
+  shared_preferences: ^2.0.15 # 数据持久化
+  dio: ^4.0.3 # 网络请求
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:music_app/custom_view/overlay_view.dart';
+import 'package:music_app/custom_view/float_view.dart';
 import 'package:music_app/main/main_view.dart';
 import 'package:music_app/root/root_bloc.dart';
 
