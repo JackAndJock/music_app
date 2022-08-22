@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:music_app/constant.dart';
+import 'package:music_app/root/root_bloc.dart';
+import 'package:music_app/root/root_event.dart';
 import 'burst_menu.dart';
 import 'circle.dart';
 
@@ -67,6 +71,7 @@ class _FloatingViewState extends State<FloatingView>
           ],
         ),
       );
+      showFloating();
     });
   }
 
@@ -81,7 +86,7 @@ class _FloatingViewState extends State<FloatingView>
       width: circleRadius * 2,
       height: circleRadius * 2,
       alignment: Alignment.center,
-      color: Colors.orangeAccent,
+      color: Colors.green,
       child: IconTheme(
         data: IconTheme.of(context).copyWith(color: Colors.white, size: 18),
         child: BurstMenu(
@@ -120,29 +125,23 @@ class _FloatingViewState extends State<FloatingView>
   // 构建 菜单 item
   List<Widget> _buildMenuItems(Color wrapColor) => [
         Circle(color: wrapColor, child: const Icon(Icons.close)),
-        // Circled(
-        // color: wrapColor, radius: 15, child: const Icon(TolyIcon.icon_bug)),
-        Circle(color: wrapColor, child: const Icon(Icons.palette)),
-        Circle(color: wrapColor, child: const Icon(Icons.widgets)),
+        Circle(color: wrapColor, child: const Icon(Icons.movie)),
+        Circle(color: wrapColor, child: const Icon(Icons.music_note)),
         Circle(color: wrapColor, child: const Icon(Icons.settings)),
       ];
 
   bool _burstMenuItemClick(int index) {
-    print(index);
     switch (index) {
       case 0:
         _doClose();
-        return true;
+        break;
       case 1:
-        _toPoint();
+        _toVideoUnit();
         break;
       case 2:
-        _toGalley();
+        _toMusicUnit();
         break;
       case 3:
-        _toWidget();
-        break;
-      case 4:
         _toSetting();
         break;
     }
@@ -155,9 +154,17 @@ class _FloatingViewState extends State<FloatingView>
     // Navigator.of(context).pushNamed(UnitRouter.setting);
   }
 
-  void _toWidget() {}
+  void _toVideoUnit() {
+    BlocProvider.of<RootBloc>(context).add(
+      const ChangeUnitEvent(UnitType.video),
+    );
+  }
 
-  void _toGalley() {}
+  void _toMusicUnit() {
+    BlocProvider.of<RootBloc>(context).add(
+      const ChangeUnitEvent(UnitType.music),
+    );
+  }
 
   void _toPoint() {
     // BlocProvider.of<PointBloc>(context).add(EventLoadPoint());

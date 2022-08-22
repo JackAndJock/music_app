@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:music_app/constant.dart';
 
 abstract class RootEvent extends Equatable {
   const RootEvent();
@@ -7,9 +8,11 @@ abstract class RootEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class EventApp extends RootEvent {
-  const EventApp();
-  
+class ChangeUnitEvent extends RootEvent {
+  final UnitType type;
+
+  const ChangeUnitEvent(this.type);
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [type];
 }
